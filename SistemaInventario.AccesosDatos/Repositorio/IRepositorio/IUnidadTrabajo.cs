@@ -9,5 +9,7 @@ namespace SistemaInventario.AccesosDatos.Repositorio.IRepositorio
     public interface IUnidadTrabajo :IDisposable
     {
         IBodegaRepositorio Bodega { get; }
+
+        void Guardar();
     }
 }

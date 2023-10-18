@@ -1,17 +1,17 @@
-﻿var datatable 
+﻿var datatable;
 
 $(document).ready(function () {
-    loadDataTable()
+    loadDataTable();
 });
 
-function loadDaraTable() {
+function loadDataTable() {
     datatable = $('#tblDatos').DataTable({
         "ajax": {
-            "url":"/Admin/Bodega/ObtenerTodos"
+            "url": "/Admin/Bodegas/ObtenerTodos"
         },
         "columns": [
-            {"data": "nombre", "width": "20%" },
-            {"data": "descripcion", "width": "20%"},
+            { "data": "nombre", "width": "20%" },
+            { "data": "descripcion", "width": "40%" },
             {
                 "data": "estado",
                 "render": function (data) {
@@ -34,5 +34,5 @@ function loadDaraTable() {
                 }, "width": "20%"
             }
         ]
-    })
+    });
 }
