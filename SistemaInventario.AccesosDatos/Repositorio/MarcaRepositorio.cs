@@ -9,23 +9,21 @@ using System.Threading.Tasks;
 
 namespace SistemaInventario.AccesosDatos.Repositorio
 {
-    public class BodegaRepositorio : Repositorio<Bodega>, IBodegaRepositorio
+    public class MarcaRepositorio : Repositorio<Marca>, IMarcaRepositorio
     {
         private readonly ApplicationDbContext _db;
-        public BodegaRepositorio(ApplicationDbContext db) : base(db)
+        public MarcaRepositorio(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }
 
-        public void Actualizar(Bodega bodega)
+        public void Actualizar(Marca marca)
         {
-            var bodegaDb = _db.Bodegas.FirstOrDefault(b => b.Id == bodega.Id);
-            if(bodegaDb != null )
+            var marcaDb = _db.Marca.FirstOrDefault(b => b.Id == marca.Id);
+            if (marcaDb != null)
             {
-                bodegaDb.Nombre = bodega.Nombre;
-                bodegaDb.Descripcion = bodega.Descripcion;
-                bodegaDb.Estado=bodega.Estado;
-
+                marcaDb.Nombre = marca.Nombre;
+                marcaDb.Estado = marca.Estado;
             }
         }
     }
