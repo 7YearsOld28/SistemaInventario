@@ -1,0 +1,121 @@
+﻿@model SistemaInventario.Modelos.ViewMoldels.ProductosVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var titulo = "Crear Producto";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="reo p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    </div>
+    @if (Model.producto.Id != 0)
+    {
+        titulo = "Actualizar Producto";
+        <input type="hidden" asp-for="producto.Id"/>
+    }
+
+    <div class="col-12 border-bottom">
+        <h2 class="text-primary">@titulo</h2>
+    </div>
+    <div class="col-8 pt-4">
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="producto.NumeroSerie"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="producto.NumeroSerie" class="form-control" />
+                <span asp-validation-for="producto.NumeroSerie" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="producto.Descripcion"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="producto.Descripcion" class="form-control" />
+                <span asp-validation-for="producto.Descripcion" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="producto.Costo"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="producto.Costo" class="form-control" />
+                <span asp-validation-for="producto.Costo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="producto.Precio"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="producto.Precio" class="form-control" />
+                <span asp-validation-for="producto.Precio" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                Categoría
+            </div>
+            <div class="col-8">
+            @Html.DropDownListFor(c=>c.producto.CategoriaId, Model.CategoriaLista,"Seleccione",
+            new {@class ="form-control"})
+                <span asp-validation-for="producto.CategoriaId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                Marca
+            </div>
+            <div class="col-8">
+                @Html.DropDownListFor(c=>c.producto.MarcaId, Model.MarcaLista,"Seleccione",
+                new {@class ="form-control"})
+                <span asp-validation-for="producto.MarcaId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                Imagen
+            </div>
+            <div class="col-8">
+                <input type="file" name="files" id="escogerImg" multiple class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-8 offset-4">
+                @if (Model.producto.Id != 0)
+                {
+                    <partial name="_BotonesActualizarYRegresar" model="Model.producto.Id" />
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" onclick="return valdiarEntrada()" class="btn btn-primary form-control">Crear</button>
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success form-control">Regresar</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<script>
+    function validarEntrada() {
+        if (document.getElementById("escogerImg").value == "") {
+            swal("Error", "Seleccione una Imagen", "error");
+            return false;
+        }
+        return true
+    }
+</script>

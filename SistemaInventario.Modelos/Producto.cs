@@ -11,7 +11,7 @@ namespace SistemaInventario.Modelos
     public class Producto
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(30)]
@@ -21,17 +21,17 @@ namespace SistemaInventario.Modelos
         [Required]
         [MaxLength(60)]
         [Display(Name ="Descripción")]
-        public int Descripcion { get; set; }
+        public string Descripcion { get; set; }
 
         [Required]
         [Range(1,10000)]
         [Display(Name ="Precio")]
-        public string Precio { get; set; }
+        public int Precio { get; set; }
 
         [Required]
         [Range(1,10000)]
         [Display (Name ="Costo")]
-        public string Costo { get; set; }
+        public int Costo { get; set; }
 
         public string ImagenUrl { get; set; }
 

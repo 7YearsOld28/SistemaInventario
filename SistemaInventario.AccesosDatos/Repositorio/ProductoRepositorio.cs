@@ -19,7 +19,7 @@ namespace SistemaInventario.AccesosDatos.Repositorio
 
         public void Actualizar(Producto producto)
         {
-            var productoDb = _db.Productos.FirstOrDefault(p=> p.id == producto.id);
+            var productoDb = _db.Productos.FirstOrDefault(p=> p.Id == producto.Id);
             if (productoDb != null)
             {
                 if (producto.ImagenUrl!=null)
