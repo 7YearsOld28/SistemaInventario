@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaInventario.AccesosDatos.Data;
 
@@ -11,9 +12,10 @@ using SistemaInventario.AccesosDatos.Data;
 namespace SistemaInventario.AccesosDatos.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231024221248_agregarTablaProducto")]
+    partial class agregarTablaProducto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -310,9 +312,6 @@ namespace SistemaInventario.AccesosDatos.Migrations
                         .IsRequired()
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
-
-                    b.Property<string>("ImagenUrl")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MarcaId")
                         .HasColumnType("int");
