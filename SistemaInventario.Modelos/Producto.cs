@@ -15,7 +15,6 @@ namespace SistemaInventario.Modelos
 
         [Required]
         [MaxLength(30)]
-        [Display(Name ="Número de Serie")]
         public string NumeroSerie { get; set; }
 
         [Required]
@@ -36,7 +35,7 @@ namespace SistemaInventario.Modelos
         
         public string ImagenUrl { get; set; }
 
-        //Foreign Keys 
+        //Foreign Keys
         [Required]
         public int CategoriaId { get; set; }
 
@@ -48,6 +47,8 @@ namespace SistemaInventario.Modelos
         [ForeignKey("MarcaId")]
         public Marca Marca { get; set; }
 
+        [ForeignKey("MarcaId")]
+        public Marca Marca { get; set;}
 
         //Recursividad
 

@@ -41,7 +41,7 @@ namespace SistemaInventario.Areas.Admin.Controllers
                     Text = p.Descripcion,
                     Value = p.Id.ToString()
                 })
-        };
+            };
             if (id == null)
             {
                 //Nuevo registro (Insert)
@@ -139,7 +139,7 @@ namespace SistemaInventario.Areas.Admin.Controllers
 
         #region API
         [HttpGet]
-        public IActionResult ObtenerTodos() 
+        public IActionResult ObtenerTodos()
         {
             var todos = _unidadTrabajo.Producto.ObtenerTodos(incluirPropiedades: "Categoria,Marca");
             return Json(new {data = todos});

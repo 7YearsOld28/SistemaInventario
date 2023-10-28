@@ -16,6 +16,12 @@ function loadDataTable() {
             { "data": "marca.nombre", "width": "15%" },
             { "data": "precio", "width": "20%" },
             {
+                "data": "marca.nombre", "width": "15%"
+            },
+            {
+                "data": "precio", "width": "15%"
+            },
+            {
                 "data": "id",
                 "render": function (data) {
                     return `
