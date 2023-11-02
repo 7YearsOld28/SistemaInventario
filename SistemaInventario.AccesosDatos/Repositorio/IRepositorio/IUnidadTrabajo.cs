@@ -12,6 +12,7 @@ namespace SistemaInventario.AccesosDatos.Repositorio.IRepositorio
         ICategoriaRepositorio Categoria { get; }
         IMarcaRepositorio Marca { get; }
         IProductoRepositorio Producto { get; }
+        IUsuariosRepositorio Usuarios { get; }
 
         void Guardar();
     }

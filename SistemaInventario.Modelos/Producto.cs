@@ -47,9 +47,6 @@ namespace SistemaInventario.Modelos
         [ForeignKey("MarcaId")]
         public Marca Marca { get; set; }
 
-        [ForeignKey("MarcaId")]
-        public Marca Marca { get; set;}
-
         //Recursividad
 
         public int? PadreId { get; set; }
