@@ -136,6 +136,7 @@ namespace SistemaInventario.Areas.Identity.Pages.Account
                     UserName = Input.UserName,
                     Email= Input.Email,
                     Nombres=Input.Nombres,
+                    PhoneNumber=Input.PhoneNumber,
                     Apellidos=Input.Apellidos,
                     Direccion=Input.Direccion,
                     Ciudad=Input.Ciudad,
@@ -201,7 +202,7 @@ namespace SistemaInventario.Areas.Identity.Pages.Account
                         else
                         {
                             //Administrador está registrando un nuevo usuario
-                            return RedirectToAction("Index", "User", new { Area = "Admin" });
+                            return RedirectToAction("Index", "Usuario", new { Area = "Admin" });
                         }
                     }
                 }
