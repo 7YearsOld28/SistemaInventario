@@ -20,6 +20,12 @@ builder.Services.AddSingleton<IEmailSender, EmailSender>();
 builder.Services.AddScoped<IUnidadTrabajo, UnidadTrabajo>();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddRazorPages();
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = $"/Identity/Account/Login";
+    options.LogoutPath = $"/Identity/Account/Logout";
+    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+});
 
 var app = builder.Build();
 
